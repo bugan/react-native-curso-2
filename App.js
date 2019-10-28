@@ -1,40 +1,17 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import {
-  ScrollView,
-  FlatList,
-} from "react-native";
-import { Cabecalho } from './src/Components/Cabecalho';
-import { Foto } from './src/Components/Foto';
-import {Comentarios} from './src/Components/Comentarios'
-import lerFotos from './src/api/feed';
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import Feed from "./src/Conteiners/Feed";
+import Login from "./src/Conteiners/Login";
 
+const MainNavigator = createStackNavigator(
+  {
+    Login: { screen: Login },
+    Home: { screen: Feed }
+  },
+  {
+    headerMode: "none"
+  }
+);
 
-const App = () => {
-  const [fotos, setFotos] = useState([]);
-
-  useEffect(() => {
-    lerFotos(setFotos);
-  }, [])
-
-  return (
-    <ScrollView>
-      <FlatList
-        data={fotos}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) =>
-          <Fragment>
-            <Cabecalho
-              nomeUsuario={item.userName}
-              urlImage={item.userURL} />
-            <Foto
-              urlFoto={item.url}
-              descricao={item.description}
-              qntLikes={item.likes}
-            />
-            <Comentarios comentarios={item.comentarios}/>
-          </Fragment>}
-      />
-    </ScrollView>
-  )
-};
+const App = createAppContainer(MainNavigator);
 export default App;
