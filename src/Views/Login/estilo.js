@@ -11,6 +11,10 @@ const estilo = StyleSheet.create({
     width: largura * 0.8,
     borderBottomColor: "#eee",
     borderBottomWidth: 1.5
+  },
+  mensagemErro: {
+    color: "#ff0000",
+    marginTop: 10
   }
 });
 

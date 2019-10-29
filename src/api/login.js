@@ -12,15 +12,13 @@ const efetuaLogin = (usuario, senha) => {
     }
   };
 
-  return fetch(uri, cabecalhoHTTP)
-    .then(res => {
-      if (res.ok) {
-        return res.headers.get("x-access-token");
-      } else {
-        throw new Error("Não foi possível efetuar login");
-      }
-    })
-    .then(token => console.warn(token));
+  return fetch(uri, cabecalhoHTTP).then(res => {
+    if (res.ok) {
+      return res.headers.get("x-access-token");
+    } else {
+      throw new Error("Não foi possível efetuar login");
+    }
+  });
 };
 
 export default efetuaLogin;
