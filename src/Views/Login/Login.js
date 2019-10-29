@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { TextInput, Button, View } from "react-native";
 import estilo from "./estilo";
+import efetuaLogin from "../../api/login";
 
 const Login = () => {
   const [usuario, setUsuario] = useState("");
@@ -26,7 +27,7 @@ const Login = () => {
         />
       </View>
 
-      <Button title="Entrar" onPress={() => console.warn(usuario)} />
+      <Button title="Entrar" onPress={() => efetuaLogin(usuario, senha)} />
     </Fragment>
   );
 };
