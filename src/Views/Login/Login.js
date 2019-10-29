@@ -27,7 +27,10 @@ const Login = () => {
         />
       </View>
 
-      <Button title="Entrar" onPress={() => efetuaLogin(usuario, senha)} />
+      <Button
+        title="Entrar"
+        onPress={async () => await efetuaLogin(usuario, senha)}
+      />
     </Fragment>
   );
 };

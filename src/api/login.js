@@ -7,9 +7,9 @@ const efetuaLogin = (usuario, senha) => {
       userName: usuario,
       password: senha
     }),
-    headers: new Headers({
+    headers: {
       "Content-type": "application/json"
-    })
+    }
   };
 
   return fetch(uri, cabecalhoHTTP)
