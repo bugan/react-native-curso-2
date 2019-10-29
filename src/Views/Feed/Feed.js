@@ -1,11 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { ScrollView, FlatList } from "react-native";
-import { Cabecalho } from "../Components/Cabecalho";
-import { Foto } from "../Components/Foto";
-import { Comentarios } from "../Components/Comentarios";
-import lerFotos from "../api/feed";
-import { curtirFoto, SeleecionaImgLike } from "../api/curtidas";
-import registrarComentario from "../api/comentarios";
+import { Cabecalho } from "../../Components/Cabecalho";
+import { Foto } from "../../Components/Foto";
+import { Comentarios } from "../../Components/Comentarios";
+import lerFotos from "../../api/feed";
+import { curtirFoto, SelecionaImgLike } from "../../api/curtidas";
+import registrarComentario from "../../api/comentarios";
 
 const Feed = () => {
   const [fotos, setFotos] = useState([]);
@@ -26,7 +26,7 @@ const Feed = () => {
               urlFoto={item.url}
               descricao={item.description}
               qntLikes={item.likes}
-              SelecionaImgLike={SeleecionaImgLike}
+              SelecionaImgLike={SelecionaImgLike}
               curtirFoto={curtirFoto}
             />
             <Comentarios

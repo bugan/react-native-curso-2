@@ -1,4 +1,4 @@
-const SeleecionaImgLike = curtiu => {
+const SelecionaImgLike = curtiu => {
   if (curtiu) {
     return require("../../res/img/s2-checked.png");
   } else {
@@ -16,4 +16,4 @@ const curtirFoto = (curtiu, likes) => {
   return [!curtiu, qnt];
 };
 
-export { SeleecionaImgLike, curtirFoto };
+export { SelecionaImgLike, curtirFoto };
