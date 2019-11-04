@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { ScrollView, FlatList } from "react-native";
+import { ScrollView, FlatList, Platform, Text } from "react-native";
 import { Cabecalho } from "../../Components/Cabecalho";
 import { Foto } from "../../Components/Foto";
 import { Comentarios } from "../../Components/Comentarios";
@@ -7,7 +7,7 @@ import lerFotos from "../../api/feed";
 import { curtirFoto, SelecionaImgLike } from "../../api/curtidas";
 import registrarComentario from "../../api/comentarios";
 
-const Feed = () => {
+const Feed = ({ navigation }) => {
   const [fotos, setFotos] = useState([]);
 
   useEffect(() => {
@@ -40,7 +40,16 @@ const Feed = () => {
   );
 };
 
-Feed.navigationOptions = {
-  title: "Feed"
+Feed.navigationOptions = ({ navigation }) => {
+  const opcoes = {
+    title: navigation.getParam("nome")
+  };
+
+  if (Platform.OS == "android") {
+    opcoes.header = null;
+  }
+
+  return opcoes;
 };
+
 export default Feed;

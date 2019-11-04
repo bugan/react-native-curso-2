@@ -15,7 +15,7 @@ const Login = ({ navigation }) => {
       const token = await efetuaLogin(usuario, senha);
       await AsyncStorage.setItem("Instalura:AuthToken", token);
 
-      navigation.replace("Feed");
+      navigation.replace("Feed", { nome: usuario });
     } catch (err) {
       setMensagemErro(err.message);
     }
@@ -48,6 +48,7 @@ const Login = ({ navigation }) => {
 };
 
 Login.navigationOptions = {
-  title: "Login"
+  title: "Login",
+  header: null
 };
 export default Login;
