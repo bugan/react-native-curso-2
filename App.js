@@ -6,10 +6,10 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 const AppNavigator = createStackNavigator({
-  Login: {
-    screen: Login
-  }
+  Login: { screen: Login },
+  Feed: { screen: Feed }
 });
+
 const AppConteiner = createAppContainer(AppNavigator);
 
 const App = () => {

@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import estilo from "./estilo";
 import efetuaLogin from "../../api/login";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
   const [mensagemErro, setMensagemErro] = useState("");
@@ -14,7 +14,8 @@ const Login = () => {
     try {
       const token = await efetuaLogin(usuario, senha);
       await AsyncStorage.setItem("Instalura:AuthToken", token);
-      console.warn(token);
+
+      navigation.replace("Feed");
     } catch (err) {
       setMensagemErro(err.message);
     }
@@ -44,5 +45,9 @@ const Login = () => {
       <Button title="Entrar" onPress={tentaLogar} />
     </Fragment>
   );
+};
+
+Login.navigationOptions = {
+  title: "Login"
 };
 export default Login;

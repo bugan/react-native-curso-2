@@ -39,4 +39,8 @@ const Feed = () => {
     </ScrollView>
   );
 };
+
+Feed.navigationOptions = {
+  title: "Feed"
+};
 export default Feed;
